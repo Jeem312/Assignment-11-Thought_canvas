@@ -9,7 +9,7 @@ const Footerfinal = () => {
    
   return (
   
-    <Footer className='container mt-24 p-16 '>
+    <Footer className='container mt-24 p-10 '>
     <div className="w-full space-y-14">
       <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
         <div className='text-blue-700'>

@@ -17,7 +17,7 @@ const Navbar = () => {
     <li className="font-bold text-blue-500"> <NavLink to="/allblog">All blogs</NavLink> </li>
     <li className="font-bold text-blue-500" > <NavLink to="/wishlist">Wishlist</NavLink> </li></>
     return (
-        <div className='container mx-auto   '>
+        <div className='container mx-auto mb-10  '>
         <div className="navbar rounded-md">
 <div className="navbar-start">
 <div className="dropdown">

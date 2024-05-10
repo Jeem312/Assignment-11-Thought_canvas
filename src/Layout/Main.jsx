@@ -6,7 +6,7 @@ import Footerfinal from '../Components/Shared/Footer';
 
 const Main = () => {
     return (
-        <div>
+        <div className='container my-34 mx-auto'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footerfinal></Footerfinal>
