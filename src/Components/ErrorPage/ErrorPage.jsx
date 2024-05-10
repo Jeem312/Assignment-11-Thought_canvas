@@ -12,9 +12,9 @@ const ErrorPage = () => {
               
             </div>
             <div className='flex flex-col justify-center items-center'>
-                <h1 className='md:text-7xl text-teal-500 mb-4'>Wanna Go Home?</h1>
+                <h1 className='md:text-7xl text-blue-500 mb-4'>Wanna Go Home?</h1>
               <div>
-              <Link to='/'> <button className='btn btn-wide bg-teal-500 text-teal-100 '>Home</button></Link>
+              <Link to='/'> <button className='btn btn-wide bg-blue-500 text-blue-100 '>Home</button></Link>
               </div>
                </div>
         </div>
