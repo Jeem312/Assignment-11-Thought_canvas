@@ -1,7 +1,11 @@
 import React from 'react';
 import NewsLetterAnimation from './NewsLetterAnimation.json'
 import Lottie from 'lottie-react';
+import { toast } from 'react-toastify';
 const NewsLetter = () => {
+  const handleSubscribe = ()=>{
+    toast('Thank you for subscribing to our newsletter')
+  }
     return (
        <div className='container mx-auto'>
        <h1 className="text-5xl text-blue-500 font-extrabold flex mt-10 underline justify-center items-center">Newsletter</h1> 
@@ -16,11 +20,13 @@ const NewsLetter = () => {
     
     <fieldset className="form-control w-80">
       <label className="label">
-        <span className="label-text text-blue-500">Enter your email address</span>
+      <span className="label-text">Enter your email address</span>
       </label> 
       <div className="join">
-        <input type="text" placeholder="User Email" className="input input-bordered join-item" /> 
-        <button className="btn bg-blue-500 text-white join-item">Subscribe</button>
+        <input type="text" placeholder="User Email" className="input input-bordered join-item" required /> 
+        <button 
+        onClick={handleSubscribe}
+        className="btn bg-blue-500  text-white join-item">Subscribe</button>
       </div>
     </fieldset>
   </form>

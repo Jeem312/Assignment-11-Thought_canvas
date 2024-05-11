@@ -21,10 +21,10 @@ const navigate = useNavigate();
       const onSubmit = (data) => {
         
         const {email,password,Name, image} = data;
-      if (!/(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(password)) {
-       toast.error("Password must have at least 1 uppercase letter, 1 lowercase letter, and be at least 6 characters long");
+        if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}/.test(password)) {
+          toast.error("Password must have at least 1 uppercase letter, 1 lowercase letter, 1 special character, 1 numeric character, and be at least 6 characters long");
           return;
-        }
+      }
         
         
         createUser(email,password)
@@ -35,10 +35,8 @@ const navigate = useNavigate();
             toast('Register Successfully');
            
             updateUserProfile(Name, image)
-            .then(() => {
-              navigate(from);
-              
-});
+            navigate(from)
+          
           }
       })
           
