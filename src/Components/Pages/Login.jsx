@@ -80,12 +80,12 @@ const Login = () => {
         <form  onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-6">
             <div className="space-y-1 text-sm">
                 <label htmlFor="username" className="block dark:text-gray-600">Email</label>
-                <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("Email", { required: true })} />
+                <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 text-black" {...register("Email", { required: true })} />
                    {errors.Email && <span className='text-red-400'>This field is required</span>}
             </div>
             <div className="space-y-1 text-sm">
                 <label htmlFor="password" className="block dark:text-gray-600">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"  {...register("Password", { required: true })} />
+                <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 text-black"  {...register("Password", { required: true })} />
                    {errors.Password && <span className='text-red-400'>This field is required</span>}
                 
             </div>

@@ -14,7 +14,7 @@ const Blogs = () => {
       
       })
     },[url])
-    console.log(data)
+    // console.log(data)
     return (
        <div className='container mx-auto'>
         <h1 className='flex justify-center my-4 items-center text-4xl font-extrabold text-blue-500 '>Recent Blogs</h1>

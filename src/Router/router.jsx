@@ -10,6 +10,10 @@ import Login from '../Components/Pages/Login';
 import Allblogs from '../Components/Pages/Allblogs';
 import FeaturedBlogs from '../Components/Pages/FeaturedBlogs';
 import Register from '../Components/Pages/Register';
+
+
+import BlogDetails from '../Components/Pages/BlogDetails/BlogDetails';
+import AddBlog from '../Components/Pages/AddBlog';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -29,8 +33,17 @@ const router = createBrowserRouter([
             element:<Allblogs></Allblogs>
         },
         {
+            path:'/addblog',
+            element:<AddBlog></AddBlog>,
+        },
+        {
             path:'/featuredblog',
             element:<FeaturedBlogs></FeaturedBlogs>
+        },
+        {
+            path:'/details/:id',
+            element:<BlogDetails></BlogDetails>,
+         
         },
         {
             path:'/register',

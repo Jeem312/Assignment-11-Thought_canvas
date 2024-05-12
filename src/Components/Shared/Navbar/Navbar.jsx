@@ -15,6 +15,7 @@ const Navbar = () => {
     <li className="font-bold text-blue-500 "> <NavLink to="/">Home</NavLink></li>
     <li className="font-bold text-blue-500"> <NavLink to="/featuredblog">Featured Blogs</NavLink> </li>
     <li className="font-bold text-blue-500"> <NavLink to="/allblog">All blogs</NavLink> </li>
+    <li className="font-bold text-blue-500"> <NavLink to="/addblog">Add Blog</NavLink> </li>
     <li className="font-bold text-blue-500" > <NavLink to="/wishlist">Wishlist</NavLink> </li></>
     return (
         <div className='container mx-auto mb-10  '>
