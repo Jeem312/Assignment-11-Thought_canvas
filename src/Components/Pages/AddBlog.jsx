@@ -1,12 +1,45 @@
 "use client";
 
 import { Label, TextInput, Textarea } from "flowbite-react";
+import { useState } from "react";
 
 
 const AddBlog = () => {
+
+  const [categoryValue ,setCategoryValue] = useState([]);
+  const handleCategory = e =>{
+    const value = parseInt(e.target.value);
+   
+    setCategoryValue(value);
+   
+   }
+  const handleAddBlog = e =>{
+    e.preventDefault();
+    const from = e.target;
+    const title = from.tittle.value;
+    const author_name = from.name.value;
+    const author_email = from.Email.value;
+    const image = from.img.value; 
+    const short_description = from.Short_description.value;
+    const long_description = from.Long_description.value;
+    const data ={
+      title,
+      author_email,
+      author_name,
+     image,
+     short_description,
+     long_description,
+     categoryValue
+    }
+   console.log(data);
+
+    
+  }
+ 
   return (
     <div>
-      <form className=''> <h2 className='flex mt-16 mb-6 justify-center items-center font-bold text-2xl text-blue-500'>Add a Blog</h2>
+      <form
+       onSubmit={handleAddBlog} className=''> <h2 className='flex mt-16 mb-6 justify-center items-center font-bold text-2xl text-blue-500'>Add a Blog</h2>
         <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 md:grid-cols-2'>
           <label className="input input-bordered flex items-center gap-2">
             <input type="text" name='tittle' className=" grow w-full" placeholder="Tittle" required />
@@ -14,18 +47,18 @@ const AddBlog = () => {
           </label>
           <label className="input input-bordered flex items-center gap-2">
         
-            <input type="text" name='img' className="grow w-full" placeholder="Photo_url" required />
+            <input type="text" name='name' className="grow w-full" placeholder="Name" required />
           </label>
 
         </div>
         <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 md:grid-cols-2'>
           <label className="input input-bordered flex items-center gap-2">
-            <input type="text" name='short_description' className=" grow w-full" placeholder="Short_description" required />
+            <input type="text" name='Email' className=" grow w-full" placeholder="Email" required />
 
           </label>
          
 
-            <select className="select select-bordered w-full max-w-xs">
+            <select className="select select-bordered w-full max-w-xs"  onChange={handleCategory} required >
               <option disabled selected>Category</option>
               <option></option>
               <option>Health & Wellness</option>
@@ -38,13 +71,28 @@ const AddBlog = () => {
           
 
         </div>
-
-
-        <div className="max-w-lg  container mx-auto  ">
-
-          <Textarea id="comment" placeholder="Leave a comment..." required rows={4} name='comment' className='p-4' />
-          <div className='mt-3'><button className='bg-blue-400 text-white p-2 rounded-lg btn-block'>Comment</button></div>
+        <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
+          
+         
+       
+         
+        <label className="input input-bordered flex items-center gap-2">
+        
+        <input type="text" name='img' className="grow w-full" placeholder="Photo_url" required />
+      </label>
         </div>
+        <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
+          
+         
+        <Textarea id="comment" placeholder="Short_description" required rows={4} name='Short_description' className='p-4 w-full'  />
+         
+       
+        </div>
+        <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
+          <Textarea id="comment" placeholder="Long_description" required rows={4} name='Long_description' className='p-4 w-full' />
+          
+        </div>
+        <div className='mt-3 w-1/2 container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg btn-block'>Comment</button></div>
       </form>
     </div>
   );
