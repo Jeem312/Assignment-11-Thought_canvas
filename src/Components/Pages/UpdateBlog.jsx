@@ -16,7 +16,7 @@ const UpdateBlog = () => {
     const author_name = from.name.value;
     const author_email = from.Email.value;
     const image = from.img.value; 
-    const category = from.img.category; 
+    const category = from.Category.value; 
     const short_description = from.Short_description.value;
     const long_description = from.Long_description.value;
     const data ={
@@ -32,15 +32,18 @@ const UpdateBlog = () => {
      
     
     .then(data =>{
-      console.log(data);
-      if(data.modifiedCount>0){
+    //   console.log(data);
+     
+      if(data.data.modifiedCount>0){
         Swal.fire({
-          title: 'success',
-          text: 'Your Blog Updated Successfully',
-          icon: 'success',
-          confirmButtonText: 'Cool'
+            title: 'success',
+            text: 'Your Blog Updated Successfully',
+            icon: 'success',
+            confirmButtonText: 'Success'
+         
         })
       }
+     
      })
 //    console.log(data); 
   }
@@ -64,7 +67,7 @@ const UpdateBlog = () => {
  
            </label>
            <label className="input input-bordered flex items-center gap-2">
-             <input type="text" name='category' className=" grow w-full" placeholder="Category" defaultValue={info?.categoryValue } required />
+             <input type="text" name='Category' className=" grow w-full" placeholder="Category" defaultValue={info?.category} required />
  
            </label>
           
@@ -80,7 +83,7 @@ const UpdateBlog = () => {
           
          <label className="input input-bordered flex items-center gap-2">
          
-         <input type="text" name='img' defaultValue={info?. image} className="grow w-full" placeholder="Photo_url" required />
+         <input type="text" name='img' defaultValue={info?.image} className="grow w-full" placeholder="Photo_url" required />
        </label>
          </div>
          <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
@@ -94,7 +97,7 @@ const UpdateBlog = () => {
            <Textarea id="comment" placeholder="Long_description" defaultValue={info?.long_description } required rows={4} name='Long_description' className='p-4 w-full' />
            
          </div>
-         <div className='mt-3 w-1/2 container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg btn-block'>Update Blog</button></div>
+         <div className='mt-3 w-full container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg btn-block'>Update Blog</button></div>
        </form>
     
     );

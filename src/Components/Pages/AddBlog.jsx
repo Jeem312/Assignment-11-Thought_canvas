@@ -4,6 +4,7 @@ import axios from "axios";
 import { Label, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 
 const AddBlog = () => {
@@ -34,7 +35,13 @@ const AddBlog = () => {
      categoryValue
     }
   axios.post(`${import.meta.env.VITE_API_URL}/blogs`,data)
-     toast('Your Blog Added Successfully');
+  Swal.fire({
+    title: 'success',
+    text: 'Your Blog Added Successfully',
+    icon: 'success',
+    confirmButtonText: 'Success'
+ 
+})
     
   }
  
