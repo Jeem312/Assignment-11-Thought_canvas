@@ -14,6 +14,7 @@ import Register from '../Components/Pages/Register';
 
 import BlogDetails from '../Components/Pages/BlogDetails/BlogDetails';
 import AddBlog from '../Components/Pages/AddBlog';
+import UpdateBlog from '../Components/Pages/UpdateBlog';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
             element:<BlogDetails></BlogDetails>,
          
         },
+        {
+            path:'/update/:id' ,
+            element:<UpdateBlog></UpdateBlog>,
+            loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`)
+           },
         {
             path:'/register',
             element:<Register></Register>

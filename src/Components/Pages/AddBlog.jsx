@@ -1,14 +1,16 @@
 "use client";
 
+import axios from "axios";
 import { Label, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 
 const AddBlog = () => {
 
   const [categoryValue ,setCategoryValue] = useState([]);
   const handleCategory = e =>{
-    const value = parseInt(e.target.value);
+    const value=e.target.value;
    
     setCategoryValue(value);
    
@@ -31,15 +33,15 @@ const AddBlog = () => {
      long_description,
      categoryValue
     }
-   console.log(data);
-
+  axios.post(`${import.meta.env.VITE_API_URL}/blogs`,data)
+     toast('Your Blog Added Successfully');
     
   }
  
   return (
     <div>
       <form
-       onSubmit={handleAddBlog} className=''> <h2 className='flex mt-16 mb-6 justify-center items-center font-bold text-2xl text-blue-500'>Add a Blog</h2>
+       onSubmit={handleAddBlog} className=''> <h2 className='flex mt-16 mb-6 justify-center items-center font-bold text-2xl text-blue-500'>Add Your Blog</h2>
         <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 md:grid-cols-2'>
           <label className="input input-bordered flex items-center gap-2">
             <input type="text" name='tittle' className=" grow w-full" placeholder="Tittle" required />
@@ -92,7 +94,7 @@ const AddBlog = () => {
           <Textarea id="comment" placeholder="Long_description" required rows={4} name='Long_description' className='p-4 w-full' />
           
         </div>
-        <div className='mt-3 w-1/2 container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg btn-block'>Comment</button></div>
+        <div className='mt-3 w-1/2 container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg btn-block'>Add Blog</button></div>
       </form>
     </div>
   );

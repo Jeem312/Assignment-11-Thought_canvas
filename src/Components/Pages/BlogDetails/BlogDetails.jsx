@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Card } from "flowbite-react";
 
 "use client";
@@ -17,9 +17,10 @@ const BlogDetails = () => {
   const [info, setInfo] = useState([]);
   const [comments, setcomments] = useState([]);
   const { user } = useContext(AuthContext);
-  console.log(user)
+  // console.log(user)
   const url = `${import.meta.env.VITE_API_URL}/details/${id}`;
   const url2 = `${import.meta.env.VITE_API_URL}/comment/${id}`;
+  // details 
   useEffect(() => {
     axios.get(url)
       .then(res => {
@@ -27,6 +28,7 @@ const BlogDetails = () => {
 
       })
   }, [url])
+  // comment section
   useEffect(() => {
     axios.get(url2)
       .then(res => {
@@ -38,28 +40,24 @@ const BlogDetails = () => {
   const handleComment = e => {
     e.preventDefault();
     const from = event.target;
-
-
     const blogComment = from.comment.value;
-   
-   
     const bloginfo = {
       id,
       blogUser:user?.displayName,
-      
       blogComment,
-
       image: user?.photoURL
-
     }
     if (user.email === info?.author_email) {
       toast('You Cannot comment on own blog');
     }
 
     axios.post(`${import.meta.env.VITE_API_URL}/comment`, bloginfo)
+    toast('Comment added successfully')
     
 
   }
+ 
+  
 
   return (
     <div>
@@ -77,6 +75,11 @@ const BlogDetails = () => {
         </p>
         <div className='border border-b-blue-300'></div>
         <p><span className='text-blue-400'> Detalis : </span>{info?.long_description}</p>
+        {user?.email === info?.author_email && (
+         <Link to={`/update/${info._id}`} > <button  className='bg-blue-400 text-white p-2 rounded-lg mt-4'>
+         Update Blog
+       </button></Link>
+        )}
       </Card>
 
       <div className='grid grid-cols-1 gap-4 my-4'>
