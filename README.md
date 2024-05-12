@@ -4,7 +4,7 @@
 
 Welcome to ThoughtCanvas - a vibrant platform for expressing your thoughts and ideas through blogging.
 
-Visit the live site: 
+Visit the live site: https://bloging-page.web.app 
 
 ## Features
 

@@ -66,20 +66,35 @@ const BlogDetails = () => {
         imgAlt="Meaningful alt text for an image that is not purely decorative"
         imgSrc={info?.image}
       >
+        
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> <span className='text-blue-400'> Tittle : </span>
           {info?.title}
         </h5>
         <div className='border border-b-blue-300'></div>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          <span className='text-blue-400'> Short-Description : </span>{info?.short_description}
-        </p>
+        <div className='flex'>
+                <img src="https://i.postimg.cc/fbpzswP8/shield.png" alt="" className=' h-5 w-5' />
+                
+               <p className='font-semibold  justify-center items-center'><span className='text-blue-400'> Author:</span>{info?.author_name}</p></div>
+       
+        <div className='flex'>
+                <img src="https://i.postimg.cc/vZP8P7tF/description.png" alt="" className=' h-5 w-5' />
+                
+               <p className='font-semibold  justify-center items-center'><span className='text-blue-400'> Short-Description : </span>{info?.short_description}</p></div>
+       
+       
         <div className='border border-b-blue-300'></div>
-        <p><span className='text-blue-400'> Detalis : </span>{info?.long_description}</p>
-        {user?.email === info?.author_email && (
+        <div className='flex'>
+                <img src="https://i.postimg.cc/JzhMBDVT/detail2.png" alt="" className=' h-5 w-5 mr-1' />
+                
+                <p><span className='text-blue-400 font-bold'> Detalis : </span>{info?.long_description}</p></div>
+       
+       <div className='flex justify-center items-center'>
+       {user?.email === info?.author_email && (
          <Link to={`/update/${info._id}`} > <button  className='bg-blue-400 text-white p-2 rounded-lg mt-4'>
          Update Blog
        </button></Link>
         )}
+       </div>
       </Card>
 
       <div className='grid grid-cols-1 gap-4 my-4'>

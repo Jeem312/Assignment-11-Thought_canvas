@@ -97,7 +97,7 @@ const UpdateBlog = () => {
            <Textarea id="comment" placeholder="Long_description" defaultValue={info?.long_description } required rows={4} name='Long_description' className='p-4 w-full' />
            
          </div>
-         <div className='mt-3 w-full container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg btn-block'>Update Blog</button></div>
+         <div className='mt-3 flex justify-center items-center container mx-auto'><button className='bg-blue-400 text-white p-2  rounded-lg '>Update Blog</button></div>
        </form>
     
     );
