@@ -15,6 +15,7 @@ import Register from '../Components/Pages/Register';
 import BlogDetails from '../Components/Pages/BlogDetails/BlogDetails';
 import AddBlog from '../Components/Pages/AddBlog';
 import UpdateBlog from '../Components/Pages/UpdateBlog';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/wishlist',
-            element:<Wishlist></Wishlist>
+            element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>
         },
         {
             path:'/allblog',
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/addblog',
-            element:<AddBlog></AddBlog>,
+            element:<PrivateRoute><AddBlog></AddBlog></PrivateRoute>,
         },
         {
             path:'/featuredblog',
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/details/:id',
-            element:<BlogDetails></BlogDetails>,
+            element:<PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
          
         },
         {

@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/Provider';
+import axios from 'axios';
 
 const AllBlogCard = ({item}) => {
+    const {user} = useContext(AuthContext);
+    const {_id,image,short_description,title,category,author_name}=item;
+    const handleWishList = ()=>{
+        const userEmail = user?.email;
+       
+       const wishInfo = {
+        _id,
+           userEmail,
+           image,
+           short_description,
+           title,
+           author_name,
+           category
+       } 
+       console.log(wishInfo)
+        axios.post(`${import.meta.env.VITE_API_URL}/wishlist`,wishInfo)
+    }
    
     return (
        
@@ -28,7 +47,7 @@ const AllBlogCard = ({item}) => {
             </div>
              <div className='flex '>
          <img src="https://i.postimg.cc/sDr5tp5M/shopping-cart.png" alt="" className='h-7 w-6' />
-             <button className='text-pink-500 text-xl'>Wishlist</button>
+             <button className='text-pink-500 text-xl' onClick={handleWishList}>Wishlist</button>
              </div>
          </div>
              </div>

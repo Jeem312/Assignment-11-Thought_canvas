@@ -31,7 +31,7 @@ const Navbar = () => {
    }
   </ul>
 </div>
-<Link to='/'  className=" text-2xl font-bold text-blue-500 ">
+<Link to='/'  className=" text-2xl font-bold text-blue-700 ">
  <div className='flex h-8 w-10 '>
  <img src="https://i.postimg.cc/PrzBpHyq/blog.png" alt="" />
  ThoughtCanvas</div></Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
           
                         </ul>
                         </div>
-                        <div className='mt-2 border border-teal-400 btn btn-sm btn-ghost'>
+                        <div className='mt-2 border border-blue-400 btn btn-sm btn-ghost'>
                                      <button
                                      onClick={logOut}
                                         className="btn btn-sm   btn-ghost">Logout</button>

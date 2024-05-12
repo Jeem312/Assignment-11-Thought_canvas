@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 "use client";
 
 import { Card } from "flowbite-react";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { AuthContext } from '../../../Provider/Provider';
 const BlogsCard = ({blog}) => {
-    const {_id,image,short_description,title,category}=blog;
+    const {user} = useContext(AuthContext);
+    
+    const {_id,image,short_description,title,category,author_name}=blog;
+    const handleWishList = ()=>{
+        const userEmail = user?.email;
+       
+       const wishInfo = {
+        _id,
+           userEmail,
+           image,
+           short_description,
+           title,
+           author_name,
+           category
+       } 
+       console.log(wishInfo)
+        axios.post(`${import.meta.env.VITE_API_URL}/wishlist`,wishInfo)
+    }
+   
     return (
        <div data-aos="flip-left"
        data-aos-easing="ease-out-cubic"
@@ -24,7 +44,7 @@ const BlogsCard = ({blog}) => {
            </div>
             <div className='flex '>
         <img src="https://i.postimg.cc/sDr5tp5M/shopping-cart.png" alt="" className='h-7 w-6' />
-            <button className='text-pink-500 text-xl'>Wishlist</button>
+            <button className='text-pink-500 text-xl' onClick={handleWishList}>Wishlist</button>
             </div>
         </div>
 			</div>
