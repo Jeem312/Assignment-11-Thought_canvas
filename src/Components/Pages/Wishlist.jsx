@@ -14,6 +14,7 @@ const Wishlist = () => {
             setInfo(res.data);})
     
     },[url])
+  
     // console.log(info)
     return (
         <div>

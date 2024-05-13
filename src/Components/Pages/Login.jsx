@@ -36,6 +36,7 @@ const Login = () => {
               .then(result => {
                   console.log(result.user);
                   reset();
+                  navigate(from,{replace:true});
               })
               .catch(error => {
                   console.log(error.message);
@@ -47,7 +48,7 @@ const Login = () => {
           .then((result) => {
             if (result.user) {
               toast('LogIn Successfully');
-              navigate(from);
+              navigate(from,{replace:true});
             }
         })
     

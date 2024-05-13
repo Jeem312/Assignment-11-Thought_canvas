@@ -42,6 +42,7 @@ const AddBlog = () => {
     confirmButtonText: 'Success'
  
 })
+e.target.reset();
     
   }
  
@@ -70,7 +71,6 @@ const AddBlog = () => {
             <select className="select select-bordered w-full max-w-xs"  onChange={handleCategory} required >
               <option disabled selected>Category</option>
               <option></option>
-              <option>Health & Wellness</option>
               <option>Lifestyle</option>
               <option>Photography</option>
               <option>Technology</option>

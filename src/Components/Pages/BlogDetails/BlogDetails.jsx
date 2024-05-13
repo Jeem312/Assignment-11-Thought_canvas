@@ -15,8 +15,9 @@ import { toast } from 'react-toastify';
 const BlogDetails = () => {
   const { id } = useParams();
   const [info, setInfo] = useState([]);
-  const [comments, setcomments] = useState([]);
+  const [comments, setComments] = useState([]);
   const { user } = useContext(AuthContext);
+ 
   // console.log(user)
   const url = `${import.meta.env.VITE_API_URL}/details/${id}`;
   const url2 = `${import.meta.env.VITE_API_URL}/comment/${id}`;
@@ -29,14 +30,9 @@ const BlogDetails = () => {
       })
   }, [url])
   // comment section
-  useEffect(() => {
-    axios.get(url2)
-      .then(res => {
-        console.log(res.data)
-        setcomments(res.data);
-
-      })
-  }, [url2])
+  useEffect(()=>{
+    GetComment()
+  },[])
   const handleComment = e => {
     e.preventDefault();
     const from = event.target;
@@ -51,14 +47,19 @@ const BlogDetails = () => {
       toast('You Cannot comment on own blog');
     }
 
-    axios.post(`${import.meta.env.VITE_API_URL}/comment`, bloginfo)
-    toast('Comment added successfully')
+   else{ axios.post(`${import.meta.env.VITE_API_URL}/comment`, bloginfo)
+   toast('Comment added successfully')}
     
 
   }
  
-  
-
+  const GetComment =async()=>{
+    axios.get(url2)
+    .then(res => {
+      // console.log(res.data)
+     setComments(res.data);})
+  }
+      GetComment();
   return (
     <div>
       <Card
@@ -86,7 +87,8 @@ const BlogDetails = () => {
         <div className='flex'>
                 <img src="https://i.postimg.cc/JzhMBDVT/detail2.png" alt="" className=' h-5 w-5 mr-1' />
                 
-                <p><span className='text-blue-400 font-bold'> Detalis : </span>{info?.long_description}</p></div>
+                <p><span className='text-blue-400 font-bold'> Detalis : </span>{info?.long_description}</p>
+              </div>
        
        <div className='flex justify-center items-center'>
        {user?.email === info?.author_email && (

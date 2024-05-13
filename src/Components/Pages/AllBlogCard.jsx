@@ -18,7 +18,7 @@ const AllBlogCard = ({item}) => {
            author_name,
            category
        } 
-       console.log(wishInfo)
+    //    console.log(wishInfo)
         axios.post(`${import.meta.env.VITE_API_URL}/wishlist`,wishInfo)
     }
    

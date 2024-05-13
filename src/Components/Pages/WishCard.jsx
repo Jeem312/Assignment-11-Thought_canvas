@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const WishCard = ({item}) => {
-    const [info ,setInfo]= useState(item);
+    const [remainingData ,setRemainingdata]= useState(item);
    
     const handleDelete=(_id)=>{
         // console.log('deleted',_id)
@@ -18,19 +18,17 @@ const WishCard = ({item}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-             
-
-           
-                
-             axios.delete(`${import.meta.env.VITE_API_URL}/wishlist/${_id}`)
+              axios.delete(`${import.meta.env.VITE_API_URL}/wishlist/${_id}`)
              
                  
               .then(data =>{
-                
-                const remainingIteam = info?.filter(p=>p._id !== _id);
-                setInfo(remainingIteam);
-                console.log(data)
+                // console.log(data.data);
+              
+               
                  if(data.data.deletedCount > 0){
+                  const remainingIteam = remainingData?.filter(p=>p._id !== _id);
+                  // console.log(remainingIteam);
+                  setRemainingdata(remainingIteam);
                   Swal.fire({
                     title: "Deleted!",
                     text: "This Blog Is Removed From Wishlist.",
@@ -41,6 +39,8 @@ const WishCard = ({item}) => {
             }
           });
     }
+   
+   
 
     return (
         <div>

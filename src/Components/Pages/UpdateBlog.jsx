@@ -40,10 +40,12 @@ const UpdateBlog = () => {
             text: 'Your Blog Updated Successfully',
             icon: 'success',
             confirmButtonText: 'Success'
-         
+          
         })
+        e.target.reset();
+       
       }
-     
+    
      })
 //    console.log(data); 
   }
