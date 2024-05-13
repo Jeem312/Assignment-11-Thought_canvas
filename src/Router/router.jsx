@@ -16,6 +16,7 @@ import BlogDetails from '../Components/Pages/BlogDetails/BlogDetails';
 import AddBlog from '../Components/Pages/AddBlog';
 import UpdateBlog from '../Components/Pages/UpdateBlog';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import CourseDetails from '../Components/Home/Courses/CourseDetails';
 const router = createBrowserRouter([
     {
       path: "/",
@@ -45,6 +46,12 @@ const router = createBrowserRouter([
         {
             path:'/details/:id',
             element:<PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
+         
+        },
+        {
+            path:'/courseDetails/:id',
+            element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+            loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/courseDetails/${params.id}`)
          
         },
         {
