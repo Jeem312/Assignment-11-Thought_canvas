@@ -44,7 +44,7 @@ const BlogDetails = () => {
       image: user?.photoURL
     }
     if (user.email === info?.author_email) {
-      toast('You Cannot comment on own blog');
+      toast.error('You Cannot comment on own blog');
     }
 
    else{ axios.post(`${import.meta.env.VITE_API_URL}/comment`, bloginfo)

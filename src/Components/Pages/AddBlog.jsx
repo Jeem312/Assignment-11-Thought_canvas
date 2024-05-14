@@ -25,15 +25,19 @@ const AddBlog = () => {
     const author_name = from.name.value;
     const author_email = from.Email.value;
     const image = from.img.value; 
+    const author_image = from.img2.value; 
+    const date = new Date(startDate).toLocaleDateString();
     const short_description = from.Short_description.value;
     const long_description = from.Long_description.value;
     const data ={
       title,
       author_email,
       author_name,
+      author_image,
      image,
      short_description,
      long_description,
+     date,
      categoryValue
     }
   axios.post(`${import.meta.env.VITE_API_URL}/blogs`,data)
@@ -89,10 +93,25 @@ e.target.reset();
          
         <label className="input input-bordered flex items-center gap-2">
         
-        <input type="text" name='img' className="grow w-full" placeholder="Photo_url" required />
+        <input type="text" name='img' className="grow w-full" placeholder="Content_Photo_url" required />
       </label>
         
-      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+    <div className="input input-bordered flex items-center gap-2">
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+    </div>
+        </div>
+        
+        <div className='container mx-auto w-1/2 gap-4 my-6  '>
+          
+         
+       
+         
+        <label className="input input-bordered flex items-center gap-2">
+        
+        <input type="text" name='img2' className="grow w-full" placeholder="Author_Photo_url" required />
+      </label>
+        
+    
         </div>
         <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
           
