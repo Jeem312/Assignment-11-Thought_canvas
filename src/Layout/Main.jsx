@@ -15,18 +15,16 @@ const Main = () => {
       
             {
         navigation.state === "loading"?  <div className='flex justify-center items-center' >
-        <RotatingLines
-visible={true}
-height="96"
-width="96"
-color="#14B8A6"
-strokeWidth="5"
-animationDuration="0.75"
-ariaLabel="rotating-lines-loading"
-wrapperStyle={{}}
-wrapperClass=""
-
-/>
+        
+ <Hourglass
+  visible={true}
+  height="80"
+  width="80"
+  ariaLabel="hourglass-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  colors={['#306cce', '#72a1ed']}
+  />
         </div> :  <Outlet></Outlet> 
        }
             <Footerfinal></Footerfinal>

@@ -23,7 +23,7 @@ const BlogDetails = () => {
   const url2 = `${import.meta.env.VITE_API_URL}/comment/${id}`;
   // details 
   useEffect(() => {
-    axios.get(url)
+    axios.get(url,{withCredentials:true})
       .then(res => {
         setInfo(res.data);
 

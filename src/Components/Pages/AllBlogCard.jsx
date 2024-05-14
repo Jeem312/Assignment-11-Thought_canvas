@@ -4,6 +4,7 @@ import { AuthContext } from '../../Provider/Provider';
 import axios from 'axios';
 
 const AllBlogCard = ({item}) => {
+    console.log(item);
     const {user} = useContext(AuthContext);
     const {_id,image,short_description,title,category,author_name}=item;
     const handleWishList = ()=>{

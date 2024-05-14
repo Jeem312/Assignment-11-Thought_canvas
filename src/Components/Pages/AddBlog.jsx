@@ -5,10 +5,12 @@ import { Label, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddBlog = () => {
-
+  const [startDate, setStartDate] = useState(new Date());
   const [categoryValue ,setCategoryValue] = useState([]);
   const handleCategory = e =>{
     const value=e.target.value;
@@ -80,7 +82,7 @@ e.target.reset();
           
 
         </div>
-        <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
+        <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-2 '>
           
          
        
@@ -89,6 +91,8 @@ e.target.reset();
         
         <input type="text" name='img' className="grow w-full" placeholder="Photo_url" required />
       </label>
+        
+      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
         </div>
         <div className='container mx-auto w-1/2 gap-4 my-6 grid grid-cols-1 '>
           

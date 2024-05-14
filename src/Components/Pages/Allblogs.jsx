@@ -10,18 +10,18 @@ const Allblogs = () => {
     const [search ,setSearch] =useState('');
    
     useEffect(()=>{
-        axios.get(`${import.meta.env.VITE_API_URL}/blogsall?filter=${filter}& search=${search}`)
+      axios.get(`${import.meta.env.VITE_API_URL}/blogsall?filter=${filter||''}&search=${search}`)
         .then(res =>{
           console.log(res.data);
            setData(res.data);
          
          })
        },[filter,search])
-      //  console.log(data);
+       console.log(data);
 
        const handlSearch=e=>{
         e.preventDefault()
-      const text = e.target.value;
+      const text = e.target.search.value;
         setSearch(text);
        
        }

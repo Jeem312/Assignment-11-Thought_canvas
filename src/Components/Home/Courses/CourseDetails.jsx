@@ -48,7 +48,7 @@ const CourseDetails = () => {
         <div className='flex'>
                 <img src="https://i.postimg.cc/W11PK7r7/stop-watch.png" alt="" className=' h-5 w-5' />
                 
-               <p className='font-semibold  justify-center items-center'><span className='text-blue-400'> Course-Deadline : </span>{duration}</p></div>
+               <p className='font-semibold  justify-center items-center'><span className='text-blue-400'> Batch-5-Deadline : </span>{deadline}</p></div>
        
        
         <div className='border border-b-blue-300'></div>
@@ -81,7 +81,9 @@ const CourseDetails = () => {
 </dialog>
       </div>
       </Card>
-     
+      <div className=" container max-auto flex justify-center items-center">
+        <h1 className='flex justify-center rounded-lg items-center text-2xl text-white h-14 w-1/2 my-6 bg-gradient-to-r from-sky-500 to-indigo-500'>Next Batch Probably Deadline:2024-07-30</h1>
+      </div>
         </div>
     );
 };

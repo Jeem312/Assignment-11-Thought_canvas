@@ -9,12 +9,15 @@ const Wishlist = () => {
     // console.log(user)
     const url = `${import.meta.env.VITE_API_URL}/wishlist/${user?.email}`;
     useEffect(()=>{
+        wishData()
+    
+    },[])
+    const wishData=async()=>{
         axios.get(url)
         .then(res => {
             setInfo(res.data);})
-    
-    },[url])
-  
+    }
+  wishData();
     // console.log(info)
     return (
         <div>
