@@ -13,7 +13,7 @@ const Wishlist = () => {
     
     },[])
     const wishData=async()=>{
-        axios.get(url)
+        axios.get(url,{withCredentials:true})
         .then(res => {
             setInfo(res.data);})
     }

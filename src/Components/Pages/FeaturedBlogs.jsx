@@ -31,6 +31,8 @@ const FeaturedBlogs = () => {
                   <th>Blog_Tittle</th>
                   <th>Blog_Category</th>
                   <th>Author</th>
+                  <th>Action</th>
+
                   
               </tr>
           </thead>

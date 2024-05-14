@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BlogTable = ({blog,index}) => {
     console.log(blog);
@@ -30,6 +31,11 @@ const BlogTable = ({blog,index}) => {
         </td>
         <td>
          {blog?.author_name}
+         
+          
+        </td>
+        <td>
+         <Link to={`/details/${blog?._id}`}><button className='btn btn-sm bg-blue-500 text-white'>Details</button></Link>
          
           
         </td>

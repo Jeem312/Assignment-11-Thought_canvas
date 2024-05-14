@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/courseDetails/:id',
-            element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+            element:<CourseDetails></CourseDetails>,
             loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/courseDetails/${params.id}`)
          
         },
