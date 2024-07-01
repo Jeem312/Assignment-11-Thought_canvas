@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from '../Components/Shared/Navbar/Navbar';
-import { Outlet, useNavigation } from 'react-router-dom';
+import { Outlet, useNavigation,  } from 'react-router-dom';
 
 import Footerfinal from '../Components/Shared/Footer';
-import { Hourglass, RotatingLines } from 'react-loader-spinner';
+
 
 const Main = () => {
     const navigation = useNavigation();

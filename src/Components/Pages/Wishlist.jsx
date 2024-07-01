@@ -9,7 +9,9 @@ const Wishlist = () => {
     // console.log(user)
     const url = `${import.meta.env.VITE_API_URL}/wishlist/${user?.email}`;
     useEffect(()=>{
+       
         wishData()
+      
     
     },[])
     const wishData=async()=>{
@@ -17,7 +19,7 @@ const Wishlist = () => {
         .then(res => {
             setInfo(res.data);})
     }
-  wishData();
+ wishData();
     // console.log(info)
     return (
         <div>

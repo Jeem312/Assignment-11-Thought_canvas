@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form"
 
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from "../../Provider/Provider";
+
 import { toast } from "react-toastify";
+import { AuthContext } from "../../Provider/Provider";
 
 const Login = () => {
   const {logIn,googleLogin} =useContext(AuthContext);

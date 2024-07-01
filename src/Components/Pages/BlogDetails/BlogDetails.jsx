@@ -19,16 +19,19 @@ const BlogDetails = () => {
   const { user } = useContext(AuthContext);
  
   // console.log(user)
-  const url = `${import.meta.env.VITE_API_URL}/details/${id}`;
+  const url = `${import.meta.env.VITE_API_URL}/details/${id}?email=${user?.email}`;
   const url2 = `${import.meta.env.VITE_API_URL}/comment/${id}`;
   // details 
   useEffect(() => {
-    axios.get(url,{withCredentials:true})
+    if(user?.email)
+     {
+      axios.get(url,{withCredentials:true})
       .then(res => {
         setInfo(res.data);
-
-      })
-  }, [url])
+  
+        })
+     }
+  }, [url,user?.email])
   // comment section
   useEffect(()=>{
     GetComment()
